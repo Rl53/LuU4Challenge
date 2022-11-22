@@ -123,9 +123,12 @@ public class SecurePassword {
      */
     private boolean checkString(String characterString) {
         int i = 0;
-        while (!(password.contains(characterString.charAt(i))) && i <= characterString.length() + 1) {
-
+        while (i <= characterString.length() - 2) {
+            if (password.contains(characterString.substring(i, i + 1))) {
+              return true;
+            }
+            i++;
         }
-        return ;
+        return false;
     }
 }
